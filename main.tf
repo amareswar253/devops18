@@ -1,5 +1,5 @@
-resource "aws_launch_configuration" "web_server_as" {
-    image_id           = "ami-0195204d5dce06d99"
+resource "aws_launch_template" "web_server_as" {
+    image_id           = "ami-0166fe664262f664c"
     instance_type = "t2.micro"
     key_name = "final"
     security_groups = [aws_security_group.web_server.id]
@@ -10,7 +10,7 @@ resource "aws_launch_configuration" "web_server_as" {
   resource "aws_elb" "web_server_lb"{
      name = "web-server-lb"
      security_groups = [aws_security_group.web_server.id]
-     subnets = ["subnet-0c42873ceef71b275", "subnet-01b9af9baf0cb7e1a"]
+     subnets = ["subnet-0666db147aab6bfd4", "subnet-0f19eec39b164fd41"]
      listener {
       instance_port     = 8000
       instance_protocol = "http"
